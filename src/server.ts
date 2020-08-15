@@ -1,13 +1,11 @@
 import express from "express";
+import routes from "./routes";
 
 const app = express();
 
-console.log("[Starting Server...]", new Date());
-
-app.get("/", (request, response) => {
-  return response.json({ message: "Home page" });
-});
+app.use(express.json());
+app.use(routes);
 
 app.listen(3333, () => {
-  console.log("🚀 [Server started] On Port: 3333");
+    console.log(`🚀 [Server started] in ${new Date()} - On Port: 3333`);
 });
